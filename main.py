@@ -7,12 +7,19 @@ heightImg = 800
 
 img = cv.imread('imageSample.jpeg')
 img = cv.resize(img, (widthImg, heightImg))
+imgContours = img.copy()
 
 imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 imgBlur = cv.GaussianBlur(img, (5, 5), 1)
 imgCanny = cv.Canny(imgBlur, 50, 50)
 
-imgArray = ([img, imgGray, imgBlur, imgCanny])
+contours, hierarchy = cv.findContours(imgCanny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+cv.drawContours(imgContours, contours, -1, (0, 255, 0), 10)
+
+imgBlank = np.zeros_like(img)
+
+imgArray = ([img, imgGray, imgBlur, imgCanny],
+            [imgContours, imgBlank, imgBlank, imgBlank])
 
 imgStack = utils.stackImages(imgArray, 0.5) #0.5 is the scale
 
