@@ -40,7 +40,7 @@ if biggestContour.size != 0 : #and gradePoints.size != 0
 imgBlank = np.zeros_like(img)
 
 imgArray = ([img, imgGray, imgBlur, imgCanny],
-            [imgContours, imgBiggestContours, imgBlank, imgBlank])
+            [imgContours, imgBiggestContours, imgWarpColored, imgBlank])
 
 imgStack = utils.stackImages(imgArray, 0.5) #0.5 is the scale
 
