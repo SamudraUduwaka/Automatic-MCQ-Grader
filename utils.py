@@ -33,10 +33,32 @@ def stackImages(imgArray, scale, lables=[]):
     return ver
 
 def rectContour(contour):
+    rectCon = []
     for i in contour:
         area = cv.contourArea(i)
         #print(area)
         if area>50:
             peri = cv.arcLength(i, True)
             approx = cv.approxPolyDP(i, 0.02*peri, True) #True - assuming to be closed shape
-            print("Corner points: ", len(approx))
+            #print("Corner points: ", len(approx))
+            if len(approx) == 4:
+                rectCon.append(i)
+    #print(len(rectCon))
+    rectCon = sorted(rectCon, key=cv.contourArea, reverse=True)
+    return rectCon
+
+def getCornerPoints(cont):
+    peri = cv.arcLength(cont, True)
+    approx = cv.approxPolyDP(cont, 0.02*peri, True)
+    return approx
+
+def reOrder(myPoints):
+    myPointsNew = np.zeros_like(myPoints)
+    myPoints = myPoints.reshape((4, 2))
+    add = myPoints.sum(1)
+    myPointsNew[0] = myPoints[np.argmin(add)]
+    myPointsNew[3] = myPoints[np.argmax(add)]
+    diff = np.diff(myPoints, axis=1)
+    myPointsNew[1] = myPoints[np.argmin(diff)]
+    myPointsNew[2] = myPoints[np.argmax(diff)]
+    return myPointsNew
