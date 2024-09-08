@@ -31,3 +31,12 @@ def stackImages(imgArray, scale, lables=[]):
         hor = np.hstack(imgArray)
         ver = hor
     return ver
+
+def rectContour(contour):
+    for i in contour:
+        area = cv.contourArea(i)
+        #print(area)
+        if area>50:
+            peri = cv.arcLength(i, True)
+            approx = cv.approxPolyDP(i, 0.02*peri, True) #True - assuming to be closed shape
+            print("Corner points: ", len(approx))

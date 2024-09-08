@@ -13,8 +13,12 @@ imgGray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 imgBlur = cv.GaussianBlur(img, (5, 5), 1)
 imgCanny = cv.Canny(imgBlur, 50, 50)
 
+#Finding all contours
 contours, hierarchy = cv.findContours(imgCanny, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
 cv.drawContours(imgContours, contours, -1, (0, 255, 0), 10)
+
+#Find rectangles
+utils.rectContour(contours)
 
 imgBlank = np.zeros_like(img)
 
