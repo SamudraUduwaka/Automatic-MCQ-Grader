@@ -62,6 +62,6 @@ def reOrder(myPoints):
     myPointsNew[3] = myPoints[np.argmax(add)] #Last point should be max of addition
     diff = np.diff(myPoints, axis=1)
     myPointsNew[1] = myPoints[np.argmin(diff)] #[w,0]
-    myPointsNew[2] = myPoints[np.argmax(diff)] #[h,0]
+    myPointsNew[2] = myPoints[np.argmax(diff)] #[0,h]
     #print(diff)
     return myPointsNew

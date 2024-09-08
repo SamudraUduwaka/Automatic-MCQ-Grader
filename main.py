@@ -29,7 +29,12 @@ if biggestContour.size != 0 : #and gradePoints.size != 0
     cv.drawContours(imgBiggestContours, biggestContour, -1, (0, 255, 0), 20)
     #cv.drawContours(imgBiggestContours, gradePoints, -1, (255, 0, 0), 20)
 
-    utils.reOrder(biggestContour)
+    buggestContour = utils.reOrder(biggestContour)
+    #gradePoints = utils.reOrder(gradePoints)
+
+    pt1 = np.float32(biggestContour)
+    pt2 = np.float32([[0, 0], [widthImg, 0], [0, heightImg], [widthImg, heightImg]])
+    matrix = cv.getPerspectiveTransform(pt1, pt2)
 
 imgBlank = np.zeros_like(img)
 
