@@ -35,6 +35,7 @@ if biggestContour.size != 0 : #and gradePoints.size != 0
     pt1 = np.float32(biggestContour)
     pt2 = np.float32([[0, 0], [widthImg, 0], [0, heightImg], [widthImg, heightImg]])
     matrix = cv.getPerspectiveTransform(pt1, pt2)
+    imgWarpColored = cv.warpPerspective(img, matrix, (widthImg, heightImg))
 
 imgBlank = np.zeros_like(img)
 
