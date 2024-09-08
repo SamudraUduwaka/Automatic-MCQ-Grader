@@ -21,12 +21,15 @@ cv.drawContours(imgContours, contours, -1, (0, 255, 0), 10)
 #Find rectangles
 rectCon = utils.rectContour(contours)
 biggestContour = utils.getCornerPoints(rectCon[0])
+#print(biggestContour.shape)
 #gradePoints = utils.getCornerPoints(rectCon[1])  if a grader box is present
 #print(biggestContour)
 
 if biggestContour.size != 0 : #and gradePoints.size != 0
     cv.drawContours(imgBiggestContours, biggestContour, -1, (0, 255, 0), 20)
     #cv.drawContours(imgBiggestContours, gradePoints, -1, (255, 0, 0), 20)
+
+    utils.reOrder(biggestContour)
 
 imgBlank = np.zeros_like(img)
 

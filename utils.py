@@ -53,12 +53,15 @@ def getCornerPoints(cont):
     return approx
 
 def reOrder(myPoints):
-    myPointsNew = np.zeros_like(myPoints)
     myPoints = myPoints.reshape((4, 2))
-    add = myPoints.sum(1)
-    myPointsNew[0] = myPoints[np.argmin(add)]
-    myPointsNew[3] = myPoints[np.argmax(add)]
+    myPointsNew = np.zeros((4, 1, 2), np.int32)
+    add = myPoints.sum(1)  #Access no 1 will add
+    #print(myPoints)
+    #print(add)
+    myPointsNew[0] = myPoints[np.argmin(add)] #First point should be min of addition
+    myPointsNew[3] = myPoints[np.argmax(add)] #Last point should be max of addition
     diff = np.diff(myPoints, axis=1)
-    myPointsNew[1] = myPoints[np.argmin(diff)]
-    myPointsNew[2] = myPoints[np.argmax(diff)]
+    myPointsNew[1] = myPoints[np.argmin(diff)] #[w,0]
+    myPointsNew[2] = myPoints[np.argmax(diff)] #[h,0]
+    #print(diff)
     return myPointsNew
