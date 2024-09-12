@@ -44,5 +44,7 @@ imgArray = ([img, imgGray, imgBlur, imgCanny],
 
 imgStack = utils.stackImages(imgArray, 0.5) #0.5 is the scale
 
+cv.imshow('Stack', imgStack)
+
 cv.imshow('Image', imgStack)
 cv.waitKey(0)
