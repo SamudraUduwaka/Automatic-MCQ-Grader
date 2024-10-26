@@ -37,15 +37,7 @@ def create_grid(image, num_questions=10, num_options=5):
     grid = [[((j * cell_width, i * cell_height), ((j + 1) * cell_width, (i + 1) * cell_height)) for j in range(num_options)] for i in range(num_questions)]
     return grid
 
-# def extract_question_boxes(image, num_columns=5, num_rows=10):
-#     height, width = image.shape[:2]
-#     box_width, box_height = width // num_columns, height // num_rows
-#     return [image[i * box_height:(i + 1) * box_height, j * box_width:(j + 1) * box_width] for i in range(num_rows) for j in range(num_columns)]
-
 def extract_question_boxes(image, num_columns=5, num_rows=10):
-    """
-    Extract individual question boxes in a column-first order.
-    """
     height, width = image.shape[:2]
     box_width, box_height = width // num_columns, height // num_rows
     question_boxes = []
