@@ -1,0 +1,7 @@
+README.md
+setup.py
+grade_mcq.egg-info/PKG-INFO
+grade_mcq.egg-info/SOURCES.txt
+grade_mcq.egg-info/dependency_links.txt
+grade_mcq.egg-info/entry_points.txt
+grade_mcq.egg-info/top_level.txt

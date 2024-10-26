@@ -9,10 +9,10 @@ setup(
             "grade_mcq=grade_mcq:main",
         ],
     },
-    install_requires=[
-        "opencv-python",
-        "numpy",
-        "matplotlib",
-        "pandas"
-    ],
+    # install_requires=[
+    #     "opencv-python",
+    #     "numpy",
+    #     "matplotlib",
+    #     "pandas"
+    # ],
 )
