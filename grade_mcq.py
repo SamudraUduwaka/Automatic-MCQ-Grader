@@ -99,6 +99,9 @@ def main():
     args = parser.parse_args()
     
     marking_scheme = load_marking_scheme(args.marking_scheme_path)
+
+    # List to store summary of grades
+    summary_data = []
     
     os.makedirs(args.output_folder, exist_ok=True)
     for image_file in os.listdir(args.answer_sheet_folder):
@@ -109,6 +112,16 @@ def main():
             output_file = os.path.join(args.output_folder, f"{os.path.splitext(image_file)[0]}_graded.csv")
             save_results(results_df, output_file)
             print(f"Processed {image_file} and saved results to {output_file}")
+
+            # Calculate total marks for the current answer sheet
+            total_marks = results_df['Correct'].sum()
+            summary_data.append({'image_name': image_file, 'grade': total_marks})
+
+    # Save the overall summary as Summary.csv in the output folder
+    summary_file = os.path.join(args.output_folder, "Summary.csv")
+    summary_df = pd.DataFrame(summary_data, columns=['image_name', 'grade'])
+    summary_df.to_csv(summary_file, index=False)
+    print(f"Overall summary saved to {summary_file}")
 
 if __name__ == "__main__":
     main()
