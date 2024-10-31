@@ -35,5 +35,5 @@ The Automated MCQ Grading System is a computer vision-based application designed
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/automated-mcq-grading-system.git
+   git clone https://github.com/SamudraUduwaka/Automatic-MCQ-Grader.git
    cd automated-mcq-grading-system
