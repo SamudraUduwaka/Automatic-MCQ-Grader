@@ -69,7 +69,7 @@ The Automated MCQ Grading System is a computer vision-based application designed
 
 2. **Install required dependencies**:
    ```bash
-   pip install opencv-python numpy pandas matplotlib
+   pip install -r requirements.txt
    ```
 
 3. **Optional - Install as a package**:
@@ -78,6 +78,47 @@ The Automated MCQ Grading System is a computer vision-based application designed
    ```
 
 ## Usage
+
+### Web Application for Quick Checking Functionality
+
+The easiest way to use the grader is through the **Streamlit web interface**:
+
+#### Quick Start
+
+**Windows:**
+```bash
+run_app.bat
+```
+
+**Mac/Linux or Manual:**
+```bash
+streamlit run app.py
+```
+
+The app will open automatically in your browser at `http://localhost:8501`
+
+#### Features
+
+- **Upload Marking Scheme**: Load your answer key once per session
+- **Batch Upload**: Upload single or multiple answer sheets at once
+- **Visual Annotations**: See answers marked with green (correct) or red (incorrect) boxes
+- **Real-time Results**: View grades and statistics instantly
+- **Download Results**: Get all graded sheets and annotated images as a ZIP file
+- **Session Management**: Switch between different marking schemes easily
+
+#### Screenshot Preview
+
+The web app includes:
+- Sidebar for marking scheme management
+- Drag-and-drop file upload for answer sheets
+- Live progress tracking during batch processing
+- Interactive result tables with scores
+- Expandable detailed view with annotated images
+- One-click download of all results
+
+For detailed instructions, see [APP_GUIDE.md](APP_GUIDE.md)
+
+---
 
 ### Command Line Interface
 
