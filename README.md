@@ -111,10 +111,19 @@ The app will open automatically in your browser at `http://localhost:8501`
 The web app includes:
 - Sidebar for marking scheme management
 - Drag-and-drop file upload for answer sheets
+
+![Welcome Screen](ui-screenshots/ui_ss_1.jpeg)
+![File Upload](ui-screenshots/ui_ss_2.jpeg)
+
 - Live progress tracking during batch processing
+
+![Grading Progress](ui-screenshots/ui_ss_3.jpeg)
+
 - Interactive result tables with scores
 - Expandable detailed view with annotated images
 - One-click download of all results
+
+![Results View](ui-screenshots/ui_ss_4.jpeg)
 
 For detailed instructions, see [APP_GUIDE.md](APP_GUIDE.md)
 
