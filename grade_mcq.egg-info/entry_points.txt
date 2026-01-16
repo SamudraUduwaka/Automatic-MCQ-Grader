@@ -1,2 +1,0 @@
-[console_scripts]
-grade_mcq = grade_mcq:main
